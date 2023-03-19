@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
         GameStart = false;
         currentState = GameState.MainMenu;
         HideAllUI();
+        // Load saved game data
     }
 
     void Update() {
@@ -48,7 +50,7 @@ public class GameManager : MonoBehaviour
             case GameState.GameRunning:
                 if(!GameOverlay.active) GameOverlay.SetActive(true);
                 score = System.Math.Floor((Time.time-startTime)*10);
-                scoreText.GetComponent<TextMeshProUGUI>().text = "Score: " + score;
+                scoreText.GetComponent<Text>().text = "Score: " + score;
                 CheckUpdate();
                 break;
             case GameState.GamePaused:
@@ -131,6 +133,10 @@ public class GameManager : MonoBehaviour
         HideAllUI();
         lastState = currentState;
         currentState = newState;
+    }
+
+    public void SaveGame(){
+
     }
 
     public enum GameState

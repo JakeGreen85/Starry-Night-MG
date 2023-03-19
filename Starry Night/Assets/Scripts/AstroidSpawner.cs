@@ -31,7 +31,7 @@ public class AstroidSpawner : MonoBehaviour
         screenBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0)).y;
 
         // Start shooting star spawner
-        StartCoroutine(SpawnStars());
+        StartCoroutine(SpawnAstroids());
     }
 
     // Update is called once per frame
@@ -56,7 +56,7 @@ public class AstroidSpawner : MonoBehaviour
 
     public
 
-    IEnumerator SpawnStars()
+    IEnumerator SpawnAstroids()
     {
         while (GameObject.FindGameObjectsWithTag("Astroid").Length < 50)
         {
