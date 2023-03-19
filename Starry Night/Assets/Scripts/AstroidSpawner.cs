@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class GameController : MonoBehaviour
+public class AstroidSpawner : MonoBehaviour
 {
     // Shooting star prefab
-    public GameObject starPrefab;
+    public GameObject[] starPrefab;
 
     // Shooting star speed
-    public float starSpeed = 5f;
+    public float starSpeed = 3f;
 
     // Shooting star spawn rate
-    public float spawnRate = 0.5f;
+    public float spawnRate = 2f;
 
     // Game screen boundaries
     private float screenLeft;
@@ -22,6 +23,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.Instance.score = 0;
         // Set game screen boundaries
         screenLeft = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0)).x;
         screenRight = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x;
@@ -35,6 +37,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GameManager.Instance.currentState != GameManager.GameState.GameRunning) return;
         // Move shooting stars
         foreach (Transform child in transform)
         {
@@ -48,14 +51,17 @@ public class GameController : MonoBehaviour
                 child.position = new Vector3(x, y, 0);
             }
         }
+        starSpeed = 3f + (Time.time / 100f);
     }
+
+    public
 
     IEnumerator SpawnStars()
     {
-        while (true)
+        while (GameObject.FindGameObjectsWithTag("Astroid").Length < 50)
         {
             // Spawn shooting star
-            GameObject star = Instantiate(starPrefab);
+            GameObject star = Instantiate(starPrefab[Random.Range(0, starPrefab.Length)]);
             star.transform.position = new Vector3(Random.Range(screenLeft, screenRight), screenTop + Random.Range(1f, 2f), 0);
             star.transform.parent = transform;
 
