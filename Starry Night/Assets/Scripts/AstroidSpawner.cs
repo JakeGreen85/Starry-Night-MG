@@ -58,16 +58,15 @@ public class AstroidSpawner : MonoBehaviour
 
     IEnumerator SpawnAstroids()
     {
-        while (GameObject.FindGameObjectsWithTag("Astroid").Length < 50)
+        while (true)
         {
-            if(GameManager.Instance.currentState == GameManager.GameState.GameRunning){
+            if(GameManager.Instance.currentState == GameManager.GameState.GameRunning && GameObject.FindGameObjectsWithTag("Astroid").Length < 25){
                 // Spawn shooting star
                 GameObject star = Instantiate(astroidPrefab[Random.Range(0, astroidPrefab.Length)]);
                 star.transform.position = new Vector3(Random.Range(screenLeft, screenRight), screenTop + Random.Range(1f, 2f), 0);
                 star.transform.parent = transform;
-
-                // Wait for next spawn
             }
+            // Wait for next spawn
             yield return new WaitForSeconds(spawnRate);
         }
     }

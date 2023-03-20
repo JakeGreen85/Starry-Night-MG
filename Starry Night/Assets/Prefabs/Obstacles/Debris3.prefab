@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7455466889568055284}
   - component: {fileID: 8874117159511128367}
   - component: {fileID: 3354489410546294172}
+  - component: {fileID: -2368098181680751119}
   m_Layer: 0
   m_Name: Debris3
   m_TagString: Astroid
@@ -153,3 +154,17 @@ MonoBehaviour:
   - {fileID: 7478116078605002341, guid: 21f6bda3c1cf436489cb78f2e5a15103, type: 3}
   - {fileID: 7478116078605002341, guid: af5d61723e9289d42b59471f863a86be, type: 3}
   - {fileID: 7478116078605002341, guid: 288c13931eecd5e449b1314d116dd5b9, type: 3}
+--- !u!114 &-2368098181680751119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3572091428166740553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8d2647a458a594693af9b1e26a8586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack: 10
+  health: 20

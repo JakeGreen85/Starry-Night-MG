@@ -37,4 +37,10 @@ public class PlayerController : MonoBehaviour
             GameManager.Instance.LevelOver(false);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.CompareTag("PowerUp")){
+            other.GetComponent<PowerUp>().GivePowerUp(this.gameObject);
+        }
+    }
 }

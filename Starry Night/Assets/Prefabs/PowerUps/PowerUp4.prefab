@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 7478116078605002343}
   - component: {fileID: 7478116078605002342}
   - component: {fileID: 7478116078605002336}
-  - component: {fileID: -9075645426975965791}
+  - component: {fileID: -4184246843716596626}
   m_Layer: 0
   m_Name: PowerUp4
-  m_TagString: Untagged
+  m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,7 +102,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &-9075645426975965791
+--- !u!114 &-4184246843716596626
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,6 +111,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7478116078605002341}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47ba653543f464c438bdc951b2595624, type: 3}
+  m_Script: {fileID: 11500000, guid: e0ea5bc72f353c8408356ba442706dcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 2
+  powerup: 4

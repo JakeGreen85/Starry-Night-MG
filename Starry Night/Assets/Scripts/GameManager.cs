@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     
     void Start()
     {
+        pData = player.GetComponent<PlayerData>();
         GameStart = false;
         currentState = GameState.MainMenu;
         HideAllUI();
@@ -92,6 +93,9 @@ public class GameManager : MonoBehaviour
     public void LevelOver(bool levelWon){
         foreach(GameObject astroid in GameObject.FindGameObjectsWithTag("Astroid")){
             Destroy(astroid);
+        }
+        if(score > pData.endlessHighscore){
+            pData.endlessHighscore = score;
         }
         if(levelWon){
             pData.money += 50;
