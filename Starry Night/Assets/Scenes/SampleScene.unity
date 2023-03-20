@@ -384,6 +384,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4929839346987607935, guid: dedf9fa77acea364a8fdfbdb7f6a86bc, type: 3}
+      propertyPath: ID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929839346987607935, guid: dedf9fa77acea364a8fdfbdb7f6a86bc, type: 3}
+      propertyPath: level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929839346987607935, guid: dedf9fa77acea364a8fdfbdb7f6a86bc, type: 3}
+      propertyPath: money
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929839346987607935, guid: dedf9fa77acea364a8fdfbdb7f6a86bc, type: 3}
+      propertyPath: attack
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929839346987607935, guid: dedf9fa77acea364a8fdfbdb7f6a86bc, type: 3}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6486199034945351716, guid: dedf9fa77acea364a8fdfbdb7f6a86bc, type: 3}
       propertyPath: m_RootOrder
       value: 1
