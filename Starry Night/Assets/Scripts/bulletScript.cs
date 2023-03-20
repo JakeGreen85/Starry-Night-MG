@@ -23,6 +23,7 @@ public class bulletScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
         Debug.Log("bullet collision");
         if(other.gameObject.CompareTag("Astroid")){
+            other.gameObject.GetComponent<PowerUpSpawner>().RollPowerUp();
             Destroy(other.gameObject);
             Destroy(this.gameObject);
         }

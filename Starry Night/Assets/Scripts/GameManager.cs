@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject GameOver;
     public GameObject OptionsMenu;
     public GameObject player;
+    public PlayerData pData;
     public GameObject AstroidSpawner;
     public GameObject GameOverlay;
     private GameState lastState;
@@ -35,7 +36,7 @@ public class GameManager : MonoBehaviour
         GameStart = false;
         currentState = GameState.MainMenu;
         HideAllUI();
-        // Load saved game data
+        // DataHandling.LoadData(player.GetComponent<PlayerData>());
     }
 
     void Update() {
@@ -93,16 +94,18 @@ public class GameManager : MonoBehaviour
             Destroy(astroid);
         }
         if(levelWon){
-            // Give player loot
+            pData.money += 50;
+            pData.level += 1;
         }
         else
         {
-            // Give player nothing
+            pData.money -= 10;
         }
         ChangeState(GameState.GameOver);
     }
 
     public void QuitGame(){
+        DataHandling.SaveData(player.GetComponent<PlayerData>());
         Application.Quit();
     }
 
