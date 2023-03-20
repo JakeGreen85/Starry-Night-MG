@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class bulletScript : MonoBehaviour
 {
+    public GameObject player;
     float speed = 10f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -21,10 +22,8 @@ public class bulletScript : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        Debug.Log("bullet collision");
         if(other.gameObject.CompareTag("Astroid")){
-            other.gameObject.GetComponent<PowerUpSpawner>().RollPowerUp();
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<AstroidData>().health -= player.GetComponent<PlayerData>().attack;
             Destroy(this.gameObject);
         }
     }

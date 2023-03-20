@@ -34,7 +34,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.CompareTag("Astroid")){
-            GameManager.Instance.LevelOver(false);
+            GetComponent<PlayerData>().health -= other.gameObject.GetComponent<AstroidData>().attack;
+            if(GetComponent<PlayerData>().health <= 0){
+                GameManager.Instance.LevelOver(false);
+            }
         }
     }
 
