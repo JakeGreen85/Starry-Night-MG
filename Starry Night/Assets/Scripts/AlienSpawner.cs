@@ -1,25 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
-public class AstroidSpawner : MonoBehaviour
+public class AlienSpawner : MonoBehaviour
 {
-    // Shooting star prefab
-    public GameObject[] astroidPrefab;
-
-    // Shooting star speed
-    public float starSpeed = 3f;
-
-    // Shooting star spawn rate
-    public float spawnRate = 2f;
+    private float speed = 2f;
+    private float spawnRate = 5f;
+    public GameObject[] AlienPrefab;
 
     // Game screen boundaries
     private float screenLeft;
     private float screenRight;
     private float screenTop;
     private float screenBottom;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +24,7 @@ public class AstroidSpawner : MonoBehaviour
         screenBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0)).y;
 
         // Start shooting star spawner
-        StartCoroutine(SpawnAstroids());
+        StartCoroutine(SpawnAliens());
     }
 
     // Update is called once per frame
@@ -41,28 +34,23 @@ public class AstroidSpawner : MonoBehaviour
         // Move shooting stars
         foreach (Transform child in transform)
         {
-            child.Translate(Vector3.down * starSpeed * Time.deltaTime);
+            child.Translate(Vector3.down * speed * Time.deltaTime);
 
             // Wrap shooting stars around screen edges
-            if (child.position.y < screenBottom - 2)
+            if (child.position.y < screenBottom - 5)
             {
-                float x = Random.Range(screenLeft, screenRight);
-                float y = screenTop + Random.Range(1f, 2f);
-                child.position = new Vector3(x, y, 0);
+                Destroy(child.gameObject);
             }
         }
-        starSpeed = 3f + (Time.time / 100f);
     }
 
-    public
-
-    IEnumerator SpawnAstroids()
+    IEnumerator SpawnAliens()
     {
         while (true)
         {
-            if(GameManager.Instance.currentState == GameManager.GameState.GameRunning && GameObject.FindGameObjectsWithTag("Astroid").Length < 25){
+            if(GameManager.Instance.currentState == GameManager.GameState.GameRunning && GameObject.FindGameObjectsWithTag("Alien").Length < 5){
                 // Spawn shooting star
-                GameObject star = Instantiate(astroidPrefab[Random.Range(0, astroidPrefab.Length)]);
+                GameObject star = Instantiate(AlienPrefab[Random.Range(0, AlienPrefab.Length)]);
                 star.transform.position = new Vector3(Random.Range(screenLeft, screenRight), screenTop + Random.Range(1f, 2f), 0);
                 star.transform.parent = transform;
             }

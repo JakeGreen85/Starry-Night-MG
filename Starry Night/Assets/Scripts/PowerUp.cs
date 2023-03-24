@@ -6,34 +6,37 @@ public class PowerUp : MonoBehaviour
 {
     public float speed = 1f;
     public int powerup;
+    public GameObject Player;
+    public PlayerData pData;
     public void GivePowerUp(GameObject player){
-        PlayerData pData = player.GetComponent<PlayerData>();
+        pData = player.GetComponent<PlayerData>();
+        Player = player;
         Destroy(this.gameObject);
         switch(powerup){
             case 1:
-                HealthPowerUp(pData);
+                HealthPowerUp();
                 break;
             case 2:
                 InstaKill();
                 break;
             case 3:
-                Money(pData);
+                Money();
                 break;
             case 4:
-                Invinsible(player);
+                Invinsible();
                 break;
             case 5:
                 Parts();
                 break;
             case 6:
-                WeaponsUpgrade(pData);
+                WeaponsUpgrade();
                 break;
             default:
                 break;
         }
     }
 
-    private void HealthPowerUp(PlayerData pData){
+    private void HealthPowerUp(){
         pData.health += 50;
     }
 
@@ -43,11 +46,12 @@ public class PowerUp : MonoBehaviour
         }
     }
 
-    private void Invinsible(GameObject player){ // FIX
-        player.GetComponent<BoxCollider2D>().enabled = false; // CANT PICK UP ANYTHING
+    private void Invinsible(){
+        Player.GetComponent<PlayerController>().Invinsible = true;
+        Player.GetComponent<PlayerController>().startInvinsible = Time.time;
     }
 
-    private void Money(PlayerData pData){
+    private void Money(){
         pData.money += 100;
     }
 
@@ -55,7 +59,7 @@ public class PowerUp : MonoBehaviour
         // Give parts to player inventory
     }
 
-    private void WeaponsUpgrade(PlayerData pData){
+    private void WeaponsUpgrade(){
         pData.attack *= 2;
     }
 

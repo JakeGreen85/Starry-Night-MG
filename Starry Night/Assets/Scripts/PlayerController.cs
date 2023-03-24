@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     float lastBullet = 0f;
     float fireRate = 0.5f;
     float moveSpeed = 10f;
+    public bool Invinsible = false;
+    public float startInvinsible;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,9 @@ public class PlayerController : MonoBehaviour
     {
         if(GameManager.Instance.currentState != GameManager.GameState.GameRunning) return;
         GetTouch();
+        if(Invinsible && Time.time > startInvinsible + 3f){
+            Invinsible = false;
+        }
     }
 
     private void GetTouch(){
@@ -33,7 +38,8 @@ public class PlayerController : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if(other.gameObject.CompareTag("Astroid")){
+        if(other.gameObject.CompareTag("Astroid") && !Invinsible){
+            Destroy(other.gameObject);
             GetComponent<PlayerData>().health -= other.gameObject.GetComponent<AstroidData>().attack;
             if(GetComponent<PlayerData>().health <= 0){
                 GameManager.Instance.LevelOver(false);
