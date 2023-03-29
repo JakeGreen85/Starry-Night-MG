@@ -7,6 +7,9 @@ TagManager:
   - Astroid
   - PowerUp
   - Alien
+  - AlienProjectile
+  - InventorySlot
+  - EquippedSlot
   layers:
   - Default
   - TransparentFX

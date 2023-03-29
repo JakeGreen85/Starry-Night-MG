@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
     public Touch touch;
     public GameObject bullet;
     float lastBullet = 0f;
@@ -15,6 +14,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
@@ -38,13 +38,17 @@ public class PlayerController : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if(other.gameObject.CompareTag("Astroid") && !Invinsible){
+        if(Invinsible) return;
+        if(other.gameObject.CompareTag("Astroid") || other.gameObject.CompareTag("AlienProjectile")){
             Destroy(other.gameObject);
-            GetComponent<PlayerData>().health -= other.gameObject.GetComponent<AstroidData>().attack;
+            GetComponent<PlayerData>().health -= other.gameObject.GetComponent<HostileData>().attack;
             if(GetComponent<PlayerData>().health <= 0){
-                GameManager.Instance.LevelOver(false);
+                // var ps = GetComponentInChildren<ParticleSystem>();
+                // ps.Play();
+                GameManager.Instance.LevelOver(true);
             }
-        }
+            GetComponent<SpriteRenderer>().sprite = GetComponent<PlayerImages>().playerImages[Random.Range(0, GetComponent<PlayerImages>().playerImages.Length)];
+        } 
     }
 
     private void OnTriggerEnter2D(Collider2D other) {

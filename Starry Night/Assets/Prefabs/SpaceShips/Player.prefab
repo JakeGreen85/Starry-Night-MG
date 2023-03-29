@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4929839346987607935}
   - component: {fileID: 4476180567856836844}
   - component: {fileID: 5843792613518232800}
+  - component: {fileID: 6330872364958941043}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -101,6 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 2135537380029005313, guid: 5d126691ce01a9d4c905b6e3a80bb263, type: 3}
+  Invinsible: 0
+  startInvinsible: 0
 --- !u!114 &4929839346987607935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,10 +119,38 @@ MonoBehaviour:
   ID: 1
   attack: 10
   health: 100
+  maxHealth: 100
   money: 50
   level: 1
   endlessHighscore: 0
   towerFloor: 0
+  inventory:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  equipped:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!50 &4476180567856836844
 Rigidbody2D:
   serializedVersion: 4
@@ -224,3 +255,19 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &6330872364958941043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3572091428166740553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa2f432dbeccf824eb5625cb8be8c1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerImages:
+  - {fileID: 21300000, guid: d01cff5f204294b49bb86fcf5a2aeec0, type: 3}
+  - {fileID: 21300000, guid: f0630834cdbcfa44e9df53403e44cd58, type: 3}
+  - {fileID: 21300000, guid: c4f8a01fad80ab74f8e250b688d74a55, type: 3}

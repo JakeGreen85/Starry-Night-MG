@@ -37,12 +37,18 @@ public class PowerUp : MonoBehaviour
     }
 
     private void HealthPowerUp(){
-        pData.health += 50;
+        pData.health = pData.maxHealth;
     }
 
     private void InstaKill(){
         foreach(GameObject astroid in GameObject.FindGameObjectsWithTag("Astroid")){
             Destroy(astroid);
+        }
+        foreach(GameObject alien in GameObject.FindGameObjectsWithTag("Alien")){
+            Destroy(alien);
+        }
+        foreach(GameObject alienProj in GameObject.FindGameObjectsWithTag("AlienProjectile")){
+            Destroy(alienProj);
         }
     }
 

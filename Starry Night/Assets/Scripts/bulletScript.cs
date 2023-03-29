@@ -22,8 +22,8 @@ public class bulletScript : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if(other.gameObject.CompareTag("Astroid")){
-            other.gameObject.GetComponent<AstroidData>().health -= player.GetComponent<PlayerData>().attack;
+        if(other.gameObject.CompareTag("Astroid") || other.gameObject.CompareTag("Alien")){
+            other.gameObject.GetComponent<HostileData>().health -= player.GetComponent<PlayerData>().attack;
             Destroy(this.gameObject);
         }
     }
