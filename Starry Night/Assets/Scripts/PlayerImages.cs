@@ -5,4 +5,5 @@ using UnityEngine;
 public class PlayerImages : MonoBehaviour
 {
     public Sprite[] playerImages;
+    public GameObject[] playerGO;
 }

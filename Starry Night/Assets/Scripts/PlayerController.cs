@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameManager.Instance.ChangeShip(0);
     }
 
     // Update is called once per frame
@@ -47,13 +47,20 @@ public class PlayerController : MonoBehaviour
                 // ps.Play();
                 GameManager.Instance.LevelOver(true);
             }
-            GetComponent<SpriteRenderer>().sprite = GetComponent<PlayerImages>().playerImages[Random.Range(0, GetComponent<PlayerImages>().playerImages.Length)];
-        } 
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.CompareTag("PowerUp")){
             other.GetComponent<PowerUp>().GivePowerUp(this.gameObject);
         }
+    }
+
+    public void ChangeSprite(GameObject newSprite){
+        GameObject SS = Instantiate(newSprite, transform.position, transform.rotation);
+        SS.transform.parent = transform;
+        GetComponent<PlayerData>().attack = SS.GetComponent<SpaceShipStats>().attack;
+        GetComponent<PlayerData>().health = SS.GetComponent<SpaceShipStats>().health;
+        GetComponent<PlayerData>().maxHealth = SS.GetComponent<SpaceShipStats>().maxHealth;
     }
 }

@@ -247,9 +247,78 @@ public class GameManager : MonoBehaviour
     }
 
     public void EquipItem(){
-        pData.equipped[0] = pData.inventory[selectedItemIndex];
-        equippedSlotButtons[0].GetComponent<Image>().sprite = pData.equipped[0].GetComponent<SpriteRenderer>().sprite;
-        RemoveItem(selectedItemIndex);
+        AddStats(pData.inventory[selectedItemIndex]);
+        switch(pData.inventory[selectedItemIndex].GetComponent<TurretStats>().itemSlot){
+            case TurretStats.Slot.Front:
+                // Check front slots and possibly unequip the worst equipped
+                // Then equip the desired item
+                if(pData.equipped[0] != null){
+                    if(pData.equipped[1] != null){
+                        // Check which is best and unequip other item
+                        // For now it will just unequip the first turret
+                        GameObject tempItem = pData.equipped[0];
+                        pData.equipped[0] = pData.inventory[selectedItemIndex];
+                        equippedSlotButtons[0].GetComponent<Image>().sprite = pData.equipped[0].GetComponent<SpriteRenderer>().sprite;
+                        RemoveItem(selectedItemIndex);
+                        AddItem(tempItem);
+                    }
+                    else{
+                        pData.equipped[1] = pData.inventory[selectedItemIndex];
+                        equippedSlotButtons[1].GetComponent<Image>().sprite = pData.equipped[1].GetComponent<SpriteRenderer>().sprite;
+                        RemoveItem(selectedItemIndex);
+                    }
+                }
+                else{
+                    pData.equipped[0] = pData.inventory[selectedItemIndex];
+                    equippedSlotButtons[0].GetComponent<Image>().sprite = pData.equipped[0].GetComponent<SpriteRenderer>().sprite;
+                    RemoveItem(selectedItemIndex);
+                }
+                break;
+            case TurretStats.Slot.Mid:
+                // Check mid slots and possibly unequip the worst equipped
+                // Then equip the desired item
+                if(pData.equipped[2] != null){
+                    if(pData.equipped[3] != null){
+                        // Check which is best and unequip other item
+                        // For now it will just unequip the first turret
+                        GameObject tempItem = pData.equipped[2];
+                        pData.equipped[2] = pData.inventory[selectedItemIndex];
+                        equippedSlotButtons[2].GetComponent<Image>().sprite = pData.equipped[2].GetComponent<SpriteRenderer>().sprite;
+                        RemoveItem(selectedItemIndex);
+                        AddItem(tempItem);
+                    }
+                    else{
+                        pData.equipped[3] = pData.inventory[selectedItemIndex];
+                        equippedSlotButtons[3].GetComponent<Image>().sprite = pData.equipped[3].GetComponent<SpriteRenderer>().sprite;
+                        RemoveItem(selectedItemIndex);
+                    }
+                }
+                else{
+                    pData.equipped[2] = pData.inventory[selectedItemIndex];
+                    equippedSlotButtons[2].GetComponent<Image>().sprite = pData.equipped[2].GetComponent<SpriteRenderer>().sprite;
+                    RemoveItem(selectedItemIndex);
+                }
+                break;
+            case TurretStats.Slot.Back:
+                // Check back slot and possibly unequip the equipped item
+                // Then equip the desired item
+                if(pData.equipped[4] != null){
+                    GameObject tempItem = pData.equipped[4];
+                    pData.equipped[4] = pData.inventory[selectedItemIndex];
+                    equippedSlotButtons[4].GetComponent<Image>().sprite = pData.equipped[4].GetComponent<SpriteRenderer>().sprite;
+                    RemoveItem(selectedItemIndex);
+                    AddItem(tempItem);
+                }
+                else{
+                    pData.equipped[4] = pData.inventory[selectedItemIndex];
+                    equippedSlotButtons[4].GetComponent<Image>().sprite = pData.equipped[4].GetComponent<SpriteRenderer>().sprite;
+                    RemoveItem(selectedItemIndex);
+                }
+                break;
+            default:
+                Debug.Log("Unknown turret slot");
+                break;
+        }
         SelectorMenu.SetActive(false);
     }
 
@@ -261,9 +330,28 @@ public class GameManager : MonoBehaviour
 
     public void UnequipItem(int index){
         AddItem(pData.equipped[index]);
+        SubtractStats(pData.equipped[index]);
         pData.equipped[index] = null;
-        equippedSlotButtons[index].GetComponent<Image>().sprite = noItem;
-        
+        equippedSlotButtons[index].GetComponent<Image>().sprite = noItem;   
+    }
+
+    public void SubtractStats(GameObject turret){
+        pData.attack -= turret.GetComponent<TurretStats>().attack;
+        pData.maxHealth -= turret.GetComponent<TurretStats>().health;
+        pData.health -= turret.GetComponent<TurretStats>().health;
+    }
+
+    public void AddStats(GameObject turret){
+        pData.attack += turret.GetComponent<TurretStats>().attack;
+        pData.maxHealth += turret.GetComponent<TurretStats>().health;
+        pData.health += turret.GetComponent<TurretStats>().health;
+    }
+
+    public void ChangeShip(int index){
+        foreach(GameObject pSprite in GameObject.FindGameObjectsWithTag("PlayerSprite")){
+            Destroy(pSprite);
+        }
+        player.GetComponent<PlayerController>().ChangeSprite(player.GetComponent<PlayerImages>().playerGO[index]);
     }
 
     public void ChangeGameMode(string gMode){

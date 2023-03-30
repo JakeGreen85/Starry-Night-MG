@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5399366069173454771}
   - component: {fileID: 2176163082057290664}
+  - component: {fileID: -5089054952278201939}
   m_Layer: 0
-  m_Name: BeginnerTurret
+  m_Name: MidTurret1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9d7dfb09158050b4f87f70dcc341698c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b618a4750ef81c94c8bcde0fae940691, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,3 +85,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-5089054952278201939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9221841949377872543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eead59ced2d4074a8cb68305cc5ced4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack: 10
+  health: 50
+  levelReq: 0
+  itemSlot: 1

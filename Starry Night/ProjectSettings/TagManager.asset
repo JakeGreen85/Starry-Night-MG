@@ -10,6 +10,7 @@ TagManager:
   - AlienProjectile
   - InventorySlot
   - EquippedSlot
+  - PlayerSprite
   layers:
   - Default
   - TransparentFX
