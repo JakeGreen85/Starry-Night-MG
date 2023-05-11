@@ -54,8 +54,6 @@ public class AstroidSpawner : MonoBehaviour
         starSpeed = 3f + (Time.time / 100f);
     }
 
-    public
-
     IEnumerator SpawnAstroids()
     {
         while (true)

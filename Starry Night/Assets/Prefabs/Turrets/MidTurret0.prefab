@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5399366069173454771}
   - component: {fileID: 2176163082057290664}
-  - component: {fileID: 1132953725293008721}
+  - component: {fileID: -5089054952278201939}
   m_Layer: 0
-  m_Name: BackTurret1
+  m_Name: MidTurret0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f94df059a55ade342918fe7d0e8c2299, type: 3}
-  m_Color: {r: 1, g: 0.95475364, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: b618a4750ef81c94c8bcde0fae940691, type: 3}
+  m_Color: {r: 0.095725775, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1132953725293008721
+--- !u!114 &-5089054952278201939
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eead59ced2d4074a8cb68305cc5ced4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 200
-  health: 200
+  attack: 15
+  health: 15
   levelReq: 0
-  itemSlot: 2
+  itemSlot: 1

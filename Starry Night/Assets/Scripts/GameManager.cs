@@ -257,6 +257,7 @@ public class GameManager : MonoBehaviour
                         // Check which is best and unequip other item
                         // For now it will just unequip the first turret
                         GameObject tempItem = pData.equipped[0];
+                        SubtractStats(tempItem);
                         pData.equipped[0] = pData.inventory[selectedItemIndex];
                         equippedSlotButtons[0].GetComponent<Image>().sprite = pData.equipped[0].GetComponent<SpriteRenderer>().sprite;
                         RemoveItem(selectedItemIndex);
@@ -282,6 +283,7 @@ public class GameManager : MonoBehaviour
                         // Check which is best and unequip other item
                         // For now it will just unequip the first turret
                         GameObject tempItem = pData.equipped[2];
+                        SubtractStats(tempItem);
                         pData.equipped[2] = pData.inventory[selectedItemIndex];
                         equippedSlotButtons[2].GetComponent<Image>().sprite = pData.equipped[2].GetComponent<SpriteRenderer>().sprite;
                         RemoveItem(selectedItemIndex);
@@ -304,6 +306,7 @@ public class GameManager : MonoBehaviour
                 // Then equip the desired item
                 if(pData.equipped[4] != null){
                     GameObject tempItem = pData.equipped[4];
+                    SubtractStats(tempItem);
                     pData.equipped[4] = pData.inventory[selectedItemIndex];
                     equippedSlotButtons[4].GetComponent<Image>().sprite = pData.equipped[4].GetComponent<SpriteRenderer>().sprite;
                     RemoveItem(selectedItemIndex);

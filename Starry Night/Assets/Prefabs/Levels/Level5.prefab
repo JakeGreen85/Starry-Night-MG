@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4977501671294512895
+--- !u!1 &8772738779095512205
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4977501671294512865}
-  - component: {fileID: 4977501671294512894}
+  - component: {fileID: 4587624871718631334}
+  - component: {fileID: 4038641862983713968}
   m_Layer: 0
-  m_Name: Level1
+  m_Name: Level5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4977501671294512865
+--- !u!4 &4587624871718631334
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4977501671294512895}
+  m_GameObject: {fileID: 8772738779095512205}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 478.34055, y: 143.68956, z: -4.11927}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,13 +32,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4977501671294512894
+--- !u!114 &4038641862983713968
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4977501671294512895}
+  m_GameObject: {fileID: 8772738779095512205}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b3e067ba2bedcd4f93007c9c7c58b7e, type: 3}
@@ -49,7 +49,6 @@ MonoBehaviour:
   alienSpawnRate: 2
   alienSpeed: 1
   alienAttackSpeed: 0
-  levelGoal: 100
-  reward: 500
-  itemRewards:
-  - {fileID: 9221841949377872543, guid: 5aa7493805399c04fac519af0a50028c, type: 3}
+  levelGoal: 2000
+  reward: 4000
+  itemRewards: []

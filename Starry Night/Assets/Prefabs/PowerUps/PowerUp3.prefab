@@ -116,3 +116,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   powerup: 3
+  Player: {fileID: 0}
+  pData: {fileID: 0}
+  ShieldSprite: {fileID: 6912134249032534394, guid: b2b3b3c7574d3774b890944145096f12, type: 3}
+  MoneyEffect: {fileID: 6188583508263198754, guid: 125398ecf5badf64e9c3f251afe9735f, type: 3}
+  HealthEffect: {fileID: 5939493612670962558, guid: 70851e96df513a74e93e922d6c009b54, type: 3}
+  InstaKillEffect: {fileID: 5939493612670962558, guid: 38ec03e5e078dd44eb58b55658128528, type: 3}
