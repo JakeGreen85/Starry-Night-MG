@@ -188,14 +188,7 @@ public class GameManager : MonoBehaviour
                 pData.inventory[i] = null;
             }
         }
-        for(int i = 0; i < pData.inventory.Length; i++){
-            if(pData.inventory[i] != null){
-                inventorySlotButtons[i].GetComponent<Image>().sprite = pData.inventory[i].GetComponent<SpriteRenderer>().sprite;
-            }
-            else{
-                inventorySlotButtons[i].GetComponent<Image>().sprite = noItem;
-            }
-        }
+        UpdateInventory();
     }
 
     public void QuitGame(){
@@ -205,6 +198,18 @@ public class GameManager : MonoBehaviour
 
     public void OpenInventory(){
         ChangeState(GameState.Inventory);
+        UpdateInventory();
+    }
+
+    public void UpdateInventory(){
+        for(int i = 0; i < pData.inventory.Length; i++){
+            if(pData.inventory[i] != null){
+                inventorySlotButtons[i].GetComponent<Image>().sprite = pData.inventory[i].GetComponent<SpriteRenderer>().sprite;
+            }
+            else{
+                inventorySlotButtons[i].GetComponent<Image>().sprite = noItem;
+            }
+        }
     }
 
     public void PauseGame(){
@@ -326,12 +331,13 @@ public class GameManager : MonoBehaviour
     }
 
     public void SellItem(){
-        pData.money += inventorySlotButtons[selectedItemIndex].GetComponent<itemData>().sellPrice;
+        pData.money += pData.inventory[selectedItemIndex].GetComponent<TurretStats>().sellPrice;
         RemoveItem(selectedItemIndex);
         SelectorMenu.SetActive(false);
     }
 
     public void UnequipItem(int index){
+        if(pData.equipped[index] == null) return;
         AddItem(pData.equipped[index]);
         SubtractStats(pData.equipped[index]);
         pData.equipped[index] = null;

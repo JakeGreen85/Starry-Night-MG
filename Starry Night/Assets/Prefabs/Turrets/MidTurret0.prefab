@@ -101,3 +101,4 @@ MonoBehaviour:
   health: 15
   levelReq: 0
   itemSlot: 1
+  sellPrice: 100

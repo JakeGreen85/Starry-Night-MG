@@ -8,6 +8,7 @@ public class TurretStats : MonoBehaviour
     public float health;
     public int levelReq;
     public Slot itemSlot;
+    public int sellPrice;
 
     public enum Slot{
         Front,

@@ -61,6 +61,7 @@ public class PowerUp : MonoBehaviour
     private void Invinsible(){
         Player.GetComponent<PlayerController>().Invinsible = true;
         Player.GetComponent<PlayerController>().startInvinsible = Time.time;
+        if(GameObject.FindGameObjectWithTag("Shield") != null) return;
         GameObject SS = Instantiate(ShieldSprite, transform.position, transform.rotation);
         SS.transform.parent = Player.transform;
     }
